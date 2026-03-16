@@ -1,1 +1,0 @@
-# asd_lab_2_sem

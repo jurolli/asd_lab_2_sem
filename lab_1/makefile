@@ -1,16 +1,13 @@
-func:
-  gcc -c func.c
+build:
+	gcc -c tree.c
 
-# compile the main program
-all: func test
-  gcc -o main func.o main.c
+main: build
+	gcc -o main main.c 
+	./main
+
+test: build
+	gcc -o tests tests.c
+	./tests
 
 clean:
-  rm -f *.o main test
-
-test: func
-  gcc -o test func.o test.c
-run:
-  ./main
-run_test:
-  ./test
+	rm -f *.o tests main
