@@ -1,0 +1,17 @@
+16
+-50.5 {"status": "error", "code": -50}
+-42.0 <error>Value too low</error>
+-33.7 Negative value: -33.7
+-25.2 [ERROR] -25.2
+-18.9 --- NEGATIVE ---
+-12.3 <root><value>-12.3</value></root>
+-5.6 {"negative": true, "value": -5.6}
+0.0 ==
+3.4 Positive start
+12.8 Normal value
+25.1 {"id": 25, "name": "test"}
+37.9 <item id="37">data</item>
+44.6 [44.6] in brackets
+53.2 +53.2 plus sign
+68.7 Mixed: {key:68.7, value:"text"}
+89.9 Last: 89.9%

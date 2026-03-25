@@ -1,0 +1,141 @@
+
+
+тестирование
+
+теперь можно использовать CMake. 
+  (  Makefile vs CMake  )
+
+Makefile
+<target> : <dep1>, <dep2>
+make <target>  
+
+autokonf генерит Makefile в котором уже всё настоенно.
+даже в одной операционке надо собирать по разному. 
+почему? под разные цели. 
+- debug(нет оптимизации)  
+- release (есть оптимизация(_о2) (пример оптимизации: разворачивает for))
+
+
+CMake (сбилдить сконфигурировать запустить)
+configuriny (почти тоже что и autokonf(ищет все зависимости))
+    /путь
+    Find_pickage 
+        (указали файлы, из зависимости)
+
+Building
+    gcc
+    
+Install
+    install test (путь)
+
+
+
+////
+
+cmake minimum_required(VERSION 3.14)
+project (MyProject)
+set(CMAKE_CXX_STANDARD 20)
+include(FetchContent)
+
+FetchContent_Declare(
+    googletest
+    URL https://github.com/google/googletest/archive/refs/tags/v1.14.6)
+FetchContent_MakeAvailable(googletest)
+
+set(PROJECT_SOURCES test.cpp add.cpp)
+
+add_executable(myTtest $ {PROJECT_SOURCES})
+add_executable(myBetch )
+
+target_link_libraries(my_test gtest gtest_main)
+
+// install (TARGETS my_testDESTINATION ./out)
+
+////
+
+_______________
+
+
+test.cpp (все максросы можно найти в документации gtest)
+
+#include <gtest/gtest.h>
+#include "add.h"
+
+TEST(AddTest, PositiveNumbers){
+    EXPECT_EQ( Lhs: addNumbers(a: 2, b: 3), rhs: 5);
+    EXPECT_EQ( Ihs: addNumbers(a: 1, b: 1), rhs: 2);
+}
+
+ASSERT_FQ(val1, val2)
+
+TEST(Addtest, NegativeNumbers) { EXPECT_EQ(Lhs: addNumbers(a: -2, b: -3), rhs: -5); }
+
+TEST(AddTest, MixedNumbers) {
+    EXPECT_EQ( Ihs: addNumbers(a: 5, b: -3), rhs: 2);
+    EXPECT_EQ( Ihs: addNumbers(a: -5, b: 3), rhs: -2);
+}
+
+TEST(NewTest, Test1{
+    EXPECT_EQ(1, 1);
+    EXPECT_LE(1, 2);
+    EXPECT_CMP(2, 1);
+})
+int main(int argc, char** argv) {
+    :: testing:: InitGoogleTest(argc: Sargc, argv); 
+    return RUN_ALL_TESTS();
+}
+
+////
+
+_______________
+
+google benchmark
+
+SYSCall?
+
+
+(!текст вставлен с фотографии!)
+#include <benchmark/benchmark.hs
+int add(int a,int b) {
+return a + b;
+}
+
+staticold BM_Addition(benchmark# StateTstate) {
+    for (auto: Value: state) {
+        benchmark :: DoNotOptimize(value: add?a: 5, b: 32);
+}
+
+BENCHMARK(BM_Addition);
+static void BM_Addition_Parameters(benchmark:: Stated state) (
+int a = state. range(pos: 0);
+int b state.range(pos: 1); for (auto_: Value : state) [
+benchmark :: DoNotOptimize(value: add(a, b)):
+21
+}
+BENCHMARK(BM_Addition_Parameters)→Argsargs: ([0]=1, [1]=2))→Args(args: ([0]=10, [1]=20));
+BENCHMARK_MAIN();
+
+
+
+_______________
+
+
+на 5 (начиная с пятой)
+
+1. сама программа(одна помарка)
+2. тесты (gtest) 5 шт
+3. отчет (
+    вариант
+    репозиторий(архитектура)
+    решение
+    результаты бэчмарков(указать железо свое)
+    выводы
+
+)
+4. бечмарки (сравнение с чем-то. можно сравнивать с гитхаба) 3 шт
+
+на 4 можно без бэчмарков. недочетов может быть больше
+
+бэчмарки можно брать из библиотеки си
+
+_______________ 
