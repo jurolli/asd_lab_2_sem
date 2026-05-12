@@ -45,7 +45,6 @@ void free_dsu(DSU *d) {
 }
 
 Edge* run_krascal(Edge* edges, int num_vertices, int num_edges, int* mst_size, double* total_weight) {
-    // 1. Сортируем ребра
     qsort(edges, num_edges, sizeof(Edge), compare_edges);
 
     DSU* d = create_dsu(num_vertices);
@@ -53,7 +52,6 @@ Edge* run_krascal(Edge* edges, int num_vertices, int num_edges, int* mst_size, d
     *mst_size = 0;
     *total_weight = 0;
 
-    // 2. Проход по ребрам
     for (int i = 0; i < num_edges; i++) {
         if (find_set(d, edges[i].src) != find_set(d, edges[i].dest)) {
             union_sets(d, edges[i].src, edges[i].dest);

@@ -22,7 +22,7 @@ vector<Edge> generateGraphEdges(int n, int m) {
 
 void MyKrascalBenchmark(benchmark::State &state) {
     int n = state.range(0);
-    int m = n * 4; // Как в примере студента
+    int m = n * 4;
 
     auto edges_data = generateGraphEdges(n, m);
 
