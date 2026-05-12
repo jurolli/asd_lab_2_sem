@@ -20,25 +20,6 @@ void test_insert_one()
     destroyTree(&t);
 }
 
-// void test_insert_many()
-// {
-//     printf("\nТест 2. Вставка нескольких элементов\n");
-
-//     Tree t;
-//     initTree(&t);
-
-//     insert(&t, "a", 1);
-//     insert(&t, "b", 2);
-//     insert(&t, "c", 3);
-
-//     if (search(&t, "a") && search(&t, "b") && search(&t, "c"))
-//         printf("  Вставка нескольких элементов: ОК\n");
-//     else
-//         printf("  Ошибка вставки нескольких\n");
-
-//     destroyTree(&t);
-// }
-
 void test_duplicate_key()
 {
     printf("\nТест 3. Дубликат ключа\n");

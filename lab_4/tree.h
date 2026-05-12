@@ -13,7 +13,7 @@ typedef struct Node
     struct Node *left, *right, *parent;
 } Node;
 
-typedef struct
+typedef struct Tree
 {
     Node *root;
 } Tree;
